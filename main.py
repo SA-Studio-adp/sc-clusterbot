@@ -21,7 +21,7 @@ import os, re, json, asyncio, logging, hashlib
 from datetime import datetime, timezone
 from dotenv import load_dotenv
 
-from pyrogram import Client, filters
+from pyrogram import Client, filters, idle
 from pyrogram.types import Message
 import httpx
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -436,7 +436,7 @@ async def main():
     await ensure_superadmin()
     log.info(f"SC Files Bot v4 — watching {DB_CHANNEL}")
     await bot.start()
-    await bot.idle()
+    await idle()
     await bot.stop()
 
 if __name__ == "__main__":
